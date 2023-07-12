@@ -79,5 +79,25 @@ namespace ADONetPracticeProblems
                 connection.Close();
             }
         }
+        public static void DeleteCustomer()
+        {
+            try
+            {
+                string query = "Delete from CustomerInformation where Id=4";
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                command.ExecuteNonQuery();
+                Console.WriteLine("Deleted Data Successfully");
+                Console.WriteLine("--------------------------");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Something Went Wrong" + ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }
