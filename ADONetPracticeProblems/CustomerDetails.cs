@@ -99,5 +99,31 @@ namespace ADONetPracticeProblems
                 connection.Close();
             }
         }
+        public static void UpdateCustomer()
+        {
+            try
+            {
+                string query = "Update CustomerInformation Set Salary=13500 Where Name='Somu'";
+                string query1 = "Update CustomerInformation Set Salary=13500 Where Name='Anil'";
+                string query2 = "Update CustomerInformation Set Salary=13500 Where Name='Kumar'";
+                SqlCommand command = new SqlCommand(query, connection);
+                SqlCommand command1 = new SqlCommand(query1, connection);
+                SqlCommand command2 = new SqlCommand(query2, connection);
+                connection.Open();
+                command.ExecuteNonQuery();
+                command1.ExecuteNonQuery();
+                command2.ExecuteNonQuery();
+                Console.WriteLine("Updated Salary Successfully");
+                Console.WriteLine("--------------------------");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Something Went Wrong" + ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }
